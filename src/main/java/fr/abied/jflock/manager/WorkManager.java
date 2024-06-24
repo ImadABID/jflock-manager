@@ -26,7 +26,7 @@ public class WorkManager  {
             assert(workDescription.getPackageName()!=null);
             
             if(coordinatorsByWorkType.containsKey(workDescription.getPackageName())){
-                throw new WorkManagerRuntimeException("Found a two work descriptions with the same package name. Package name must be unique for each work description.");
+                throw new WorkManagerRuntimeException("Found two work descriptions with the same package name. Package name must be unique for each work description.");
             }
 
             coordinatorsByWorkType.put(

@@ -53,11 +53,7 @@ public abstract class WorkDescription<A, S> {
             try {
                 return Mono.just(new WorkAssignment(getPackageName(), jackson.writeValueAsString(workAssignmentUserObj)));
             } catch (JsonProcessingException e) {
-                /*
-                 * We fixing the bug an restarting the app, the assignment that were replaced by empty
-                 * are going to be re-processed
-                 */
-                log.error(e.getMessage());
+                log.error(e.getMessage() + " (This assignments is going to be ignored for now and re-processed when the this bug is fixed and the app restarted)");
                 return Mono.empty();
             }
         });
